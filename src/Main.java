@@ -29,7 +29,7 @@ public class Main {
 
         for (int i = 1; i <= rowNum; i++) {
             /*
-                Formula nextValue = valueInside*((n-k+1)/k)
+                Formula nextValue = previousValue * ((n-k+1)/k)
                 n = rowNumber
                 k, i = position
              */
