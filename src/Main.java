@@ -1,21 +1,17 @@
-import java.util.List;
+import java.util.regex.Pattern;
 
 public class Main {
+    public static final String ONLY_DIGITS_REGEX = "\\d+$";
+    public static final String LOG_FORMAT = "This input %s only digits";
+    public static final String IS = "is";
+    public static final String IS_NOT = "is not";
+
     public static void main(String[] args) {
-        List<Integer> inputs = List.of(0, 3, 6, 2, 1, 5, 8, 7, 9);
-        int sumInput = 0;
-        int result = 0;
-
-        for (Integer input : inputs) {
-            sumInput += input;
-        }
-
-        result = arithmeticSeries(inputs.size()) - sumInput;
-        System.out.println("one element randomly replaced by 0 is : " + result);
-
+        String input = "123456";
+        System.out.printf((LOG_FORMAT), isOnlyDigits(input) ? IS : IS_NOT);
     }
 
-    public static Integer arithmeticSeries(Integer size) {
-        return (int) ((Double.valueOf(size) / 2) * (1 + size));
+    public static boolean isOnlyDigits(String input) {
+        return Pattern.matches(ONLY_DIGITS_REGEX, input);
     }
 }
